@@ -1,18 +1,8 @@
 import fs from 'fs';
 
-const readFile = (callback) => {
-    fs.readFile('./src/database/token.json','utf-8', (err, data) => {
-        if (err) {
-            console.log(err);
-            return;
-        }
-        callback(data);
-    });
-}
-
+const readFile = fs.readFileSync('./src/database/token.json', 'utf8')
 const writeFile = (data) => {
-    fs.writeFileSync('./src/database/token.json',data)
+fs.writeFileSync('./src/database/token.json', JSON.stringify(data))
 }
-      
 
 export {readFile, writeFile}

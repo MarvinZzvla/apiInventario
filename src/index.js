@@ -6,13 +6,13 @@ dotenv.config()
 
 const app = express();
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 5000
 const API_KEY = process.env.API_KEY; // Reemplaza esto con tu clave API
 
 //middleware
 const limiter = rateLimit({
     windowMs: 1 * 60 * 1000, // 10minutos
-    max: 6 // limita cada IP a 100 solicitudes por windowMs
+    max: 20 // limita cada IP a 100 solicitudes por windowMs
   });
 app.use(express.json())
 app.use(limiter);
@@ -32,5 +32,5 @@ app.use('/api',router)
 
 //Deploy
 app.listen(PORT,() => {
-    console.log('listening on port 3000')
+    console.log(`listening on port ${PORT}`);
 })
