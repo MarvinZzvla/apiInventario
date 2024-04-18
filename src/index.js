@@ -12,7 +12,7 @@ const API_KEY = process.env.API_KEY; // Reemplaza esto con tu clave API
 //middleware
 const limiter = rateLimit({
     windowMs: 1 * 60 * 1000, // 10minutos
-    max: 5 // limita cada IP a 100 solicitudes por windowMs
+    max: 6 // limita cada IP a 100 solicitudes por windowMs
   });
 app.use(express.json())
 app.use(limiter);
