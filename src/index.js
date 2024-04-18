@@ -16,7 +16,7 @@ app.use((req, res, next) => {
     if (userApiKey && userApiKey === API_KEY) {
         next(); // Si la clave API es válida, permite que la solicitud continúe
     } else {
-        res.status(403).send('<h1>Forbbiden 403</h1>'); // Si la clave API es inválida, devuelve un error
+        res.status(403).send('<h1>Forbidden 403</h1>'); // Si la clave API es inválida, devuelve un error
     }
 });
 
