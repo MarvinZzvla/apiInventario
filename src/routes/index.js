@@ -35,7 +35,7 @@ router.post('/consume', (req, res) => {
         // Verificar si el token ya ha sido usado
         if (usedTokens.includes(token)) {
         
-            return res.status(400).json({ message: 'El token ya ha sido usado' });
+            return res.status(401).json({ message: 'El token ya ha sido usado' });
         }
 
         // Marcar el token como usado
@@ -44,7 +44,7 @@ router.post('/consume', (req, res) => {
         // Guardar los tokens usados en el archivo
         writeFile(usedTokens);
 
-        res.json({ message: 'Token consumido exitosamente' });
+        res.status(200).json({ message: 'Token consumido exitosamente'});
     } catch (error) {
         res.status(400).json({ message: 'Token inválido  ' + error.message });
     }
